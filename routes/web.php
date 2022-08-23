@@ -4,6 +4,7 @@ use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LoginControler;
 use App\Http\Controllers\LogoutControler;
 use App\Http\Controllers\PostControler;
+use App\Http\Controllers\ComentarioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 
