@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('followers', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo');
-            $table->text('descripcion');
-            $table->string('imagen');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); //Cuando un usuario elimna su cuenta, también se eliminan sus posts con cascade
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('follower_id')->constrained('users')->onDelete('cascade');//en constrained colocamos users, para indicarle a Laravel en que tabla debe buscar
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('followers');
     }
 };
